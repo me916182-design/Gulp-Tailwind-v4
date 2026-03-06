@@ -5,3 +5,4 @@ dist/
 .sass-cache/
 .tmp/
 .env
+scripts/git-update.bat
