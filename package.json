@@ -10,7 +10,8 @@
     "lint": "eslint . --ext .js",
     "lint:fix": "eslint . --ext .js --fix",
     "format": "prettier . --write",
-    "format:check": "prettier . --check"
+    "format:check": "prettier . --check",
+    "git:update": "echo Running git update... && git add . && git commit -m \"Update: auto commit\" && git push"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.2.1",
