@@ -1,4 +1,4 @@
-# Flowmarketing Build
+# Gulp-сборка с Tailwind CSS v4
 
 Gulp-сборка с Tailwind CSS v4, HTML includes и модульной архитектурой.
 
