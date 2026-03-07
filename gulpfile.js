@@ -14,6 +14,7 @@ const gulpIf = require('gulp-if');
 const newer = require('gulp-newer');
 const rollup = require('rollup');
 const { nodeResolve } = require('@rollup/plugin-node-resolve');
+const postcssImport = require('postcss-import');
 
 const paths = {
   html: {
@@ -66,7 +67,7 @@ function html() {
 function styles() {
   return src(paths.styles.src)
     .pipe(gulpIf(!isProd, sourcemaps.init()))
-    .pipe(postcss([tailwindcss()]))
+    .pipe(postcss([postcssImport(), tailwindcss()]))
     .pipe(dest(paths.styles.dest))
     .pipe(rename({ suffix: '.min' }))
     .pipe(postcss([cssnano()]))

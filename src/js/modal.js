@@ -11,6 +11,19 @@ export function init() {
   // Стек открытых модальных окон (для поддержки нескольких)
   const openModals = [];
 
+  // Сохраняем исходную ширину скроллбара
+  let scrollbarWidth = 0;
+
+  // Вычисление ширины полосы прокрутки
+  const getScrollbarWidth = () => {
+    const scrollDiv = document.createElement('div');
+    scrollDiv.style.cssText = 'position: absolute; left: -9999px; width: 100px; height: 100px; overflow: scroll; visibility: hidden;';
+    document.body.appendChild(scrollDiv);
+    const width = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+    document.body.removeChild(scrollDiv);
+    return width;
+  };
+
   // Получить модальное окно по имени
   const getModal = (name) => {
     const modal = document.getElementById(`modal-${name}`) || document.querySelector(`[data-modal="${name}"]`);
@@ -34,8 +47,18 @@ export function init() {
 
     // Блокируем скролл body при первом модальном
     if (openModals.length === 0) {
+      scrollbarWidth = getScrollbarWidth();
       document.body.classList.add('modal-open');
       document.body.style.overflow = 'hidden';
+      // Компенсируем сдвиг контента padding-right
+      if (scrollbarWidth > 0) {
+        document.body.style.paddingRight = scrollbarWidth + 'px';
+        // Фиксируем header/footer если есть
+        const fixedElements = document.querySelectorAll('.fixed, .sticky');
+        fixedElements.forEach(el => {
+          el.style.paddingRight = scrollbarWidth + 'px';
+        });
+      }
     }
 
     openModals.push(name);
@@ -69,6 +92,12 @@ export function init() {
       if (openModals.length === 0) {
         document.body.classList.remove('modal-open');
         document.body.style.overflow = '';
+        document.body.style.paddingRight = '';
+        // Возвращаем padding фиксированным элементам
+        const fixedElements = document.querySelectorAll('.fixed, .sticky');
+        fixedElements.forEach(el => {
+          el.style.paddingRight = '';
+        });
       }
     }, 300);
   };

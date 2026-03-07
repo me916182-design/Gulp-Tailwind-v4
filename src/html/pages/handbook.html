@@ -5,352 +5,202 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Справочник проекта</title>
     <link rel="stylesheet" href="css/main.css" />
-    <style>
-      .handbook {
-        font-family:
-          system-ui,
-          -apple-system,
-          sans-serif;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 2rem;
-        background: #f8fafc;
-        min-height: 100vh;
-      }
-      .handbook h1 {
-        font-size: 2rem;
-        color: #1e293b;
-        margin-bottom: 0.5rem;
-      }
-      .handbook .subtitle {
-        color: #64748b;
-        margin-bottom: 2rem;
-      }
-      .handbook-nav {
-        display: flex;
-        gap: 0.5rem;
-        flex-wrap: wrap;
-        margin-bottom: 2rem;
-      }
-      .handbook-nav a {
-        padding: 0.5rem 1rem;
-        background: #fff;
-        border: 1px solid #e2e8f0;
-        border-radius: 6px;
-        text-decoration: none;
-        color: #334155;
-        font-size: 0.875rem;
-        transition: all 0.2s;
-      }
-      .handbook-nav a:hover {
-        background: #3b82f6;
-        color: #fff;
-        border-color: #3b82f6;
-      }
-      .handbook-section {
-        background: #fff;
-        border-radius: 8px;
-        padding: 1.5rem;
-        margin-bottom: 1.5rem;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-      }
-      .handbook-section h2 {
-        font-size: 1.25rem;
-        color: #1e293b;
-        margin-bottom: 1rem;
-        padding-bottom: 0.5rem;
-        border-bottom: 2px solid #e2e8f0;
-      }
-      .file-tree {
-        font-family: 'Consolas', 'Monaco', monospace;
-        font-size: 0.875rem;
-        background: #1e293b;
-        color: #e2e8f0;
-        padding: 1rem;
-        border-radius: 6px;
-        overflow-x: auto;
-      }
-      .file-tree .folder {
-        color: #60a5fa;
-      }
-      .file-tree .file {
-        color: #34d399;
-      }
-      .file-tree .comment {
-        color: #64748b;
-      }
-      .component-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 1rem;
-      }
-      .component-card {
-        background: #f8fafc;
-        border: 1px solid #e2e8f0;
-        border-radius: 6px;
-        padding: 1rem;
-      }
-      .component-card h3 {
-        font-size: 1rem;
-        color: #1e293b;
-        margin-bottom: 0.5rem;
-      }
-      .component-card code {
-        display: block;
-        background: #1e293b;
-        color: #34d399;
-        padding: 0.25rem 0.5rem;
-        border-radius: 4px;
-        font-size: 0.75rem;
-        margin-bottom: 0.5rem;
-      }
-      .component-card p {
-        font-size: 0.875rem;
-        color: #64748b;
-        margin: 0;
-      }
-      .command-table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 0.875rem;
-      }
-      .command-table th,
-      .command-table td {
-        padding: 0.75rem;
-        text-align: left;
-        border-bottom: 1px solid #e2e8f0;
-      }
-      .command-table th {
-        background: #f8fafc;
-        font-weight: 600;
-        color: #1e293b;
-      }
-      .command-table code {
-        background: #1e293b;
-        color: #34d399;
-        padding: 0.25rem 0.5rem;
-        border-radius: 4px;
-        font-size: 0.75rem;
-      }
-      .badge {
-        display: inline-block;
-        padding: 0.25rem 0.5rem;
-        border-radius: 4px;
-        font-size: 0.75rem;
-        font-weight: 600;
-      }
-      .badge-dev {
-        background: #dbeafe;
-        color: #1e40af;
-      }
-      .badge-prod {
-        background: #dcfce7;
-        color: #166534;
-      }
-      .badge-clean {
-        background: #fee2e2;
-        color: #991b1b;
-      }
-      .link-path {
-        color: #3b82f6;
-        text-decoration: none;
-      }
-      .link-path:hover {
-        text-decoration: underline;
-      }
-    </style>
   </head>
-  <body>
-    <div class="handbook">
-      <h1>📚 Справочник проекта</h1>
-      <p class="subtitle">FlowMarketing WP Build — справочник разработчика</p>
+  <body class="font-sans bg-slate-50 min-h-screen">
+    <div class="max-w-[1200px] mx-auto px-8 py-8">
+      <h1 class="text-3xl font-bold text-slate-800 mb-2">📚 Справочник проекта</h1>
+      <p class="text-slate-500 mb-8">FlowMarketing WP Build — справочник разработчика</p>
 
-      <nav class="handbook-nav">
-        <a href="#structure">Структура</a>
-        <a href="#components">Компоненты</a>
-        <a href="#scripts">Скрипты</a>
-        <a href="#commands">Команды</a>
-        <a href="#paths">Пути</a>
+      <nav class="flex gap-2 flex-wrap mb-8">
+        <a href="#structure" class="px-4 py-2 bg-white border border-slate-200 rounded-md no-underline text-slate-700 text-sm transition-all duration-200 hover:bg-blue-500 hover:text-white hover:border-blue-500">Структура</a>
+        <a href="#components" class="px-4 py-2 bg-white border border-slate-200 rounded-md no-underline text-slate-700 text-sm transition-all duration-200 hover:bg-blue-500 hover:text-white hover:border-blue-500">Компоненты</a>
+        <a href="#scripts" class="px-4 py-2 bg-white border border-slate-200 rounded-md no-underline text-slate-700 text-sm transition-all duration-200 hover:bg-blue-500 hover:text-white hover:border-blue-500">Скрипты</a>
+        <a href="#commands" class="px-4 py-2 bg-white border border-slate-200 rounded-md no-underline text-slate-700 text-sm transition-all duration-200 hover:bg-blue-500 hover:text-white hover:border-blue-500">Команды</a>
+        <a href="#paths" class="px-4 py-2 bg-white border border-slate-200 rounded-md no-underline text-slate-700 text-sm transition-all duration-200 hover:bg-blue-500 hover:text-white hover:border-blue-500">Пути</a>
       </nav>
 
-      <section id="structure" class="handbook-section">
-        <h2>📁 Структура проекта</h2>
-        <div class="file-tree">
-          <pre><span class="comment">flowmarketing-wp-build/</span>
-├── <span class="folder">src/</span>
-│   ├── <span class="folder">html/</span>
-│   │   ├── <span class="folder">pages/</span>
-│   │   │   └── <span class="file">index.html</span>
-│   │   └── <span class="folder">partials/</span>
-│   │       ├── <span class="file">header.html</span>
-│   │       └── <span class="file">footer.html</span>
-│   ├── <span class="folder">js/</span>
-│   │   ├── <span class="file">main.js</span>
-│   │   ├── <span class="file">mobile-menu.js</span>
-│   │   └── <span class="file">modal.js</span>
-│   ├── <span class="folder">fonts/</span>
-│   ├── <span class="folder">images/</span>
-│   ├── <span class="folder">ibs/</span>
-│   └── <span class="file">main.css</span>
-├── <span class="folder">dist/</span>                    <span class="comment"># Результат сборки</span>
-├── <span class="folder">scripts/</span>
-├── <span class="file">gulpfile.js</span>              <span class="comment"># Конфигурация Gulp</span>
-├── <span class="file">package.json</span>             <span class="comment"># Зависимости и скрипты</span>
-├── <span class="file">tailwind.config.js</span>       <span class="comment"># Tailwind CSS</span>
-├── <span class="file">.eslintrc.cjs</span>            <span class="comment"># ESLint</span>
-└── <span class="file">.prettierrc.json</span>         <span class="comment"># Prettier</span></pre>
+      <section id="structure" class="bg-white rounded-lg p-6 mb-6 shadow-sm">
+        <h2 class="text-xl font-bold text-slate-800 mb-4 pb-2 border-b-2 border-slate-200">📁 Структура проекта</h2>
+        <div class="font-mono text-sm bg-slate-800 text-slate-200 p-4 rounded-md overflow-x-auto">
+          <pre><span class="text-slate-500">flowmarketing-wp-build/</span>
+├── <span class="text-blue-400">src/</span>
+│   ├── <span class="text-blue-400">html/</span>
+│   │   ├── <span class="text-blue-400">pages/</span>
+│   │   │   └── <span class="text-emerald-400">index.html</span>
+│   │   └── <span class="text-blue-400">partials/</span>
+│   │       ├── <span class="text-emerald-400">header.html</span>
+│   │       └── <span class="text-emerald-400">footer.html</span>
+│   ├── <span class="text-blue-400">js/</span>
+│   │   ├── <span class="text-emerald-400">main.js</span>
+│   │   ├── <span class="text-emerald-400">mobile-menu.js</span>
+│   │   └── <span class="text-emerald-400">modal.js</span>
+│   ├── <span class="text-blue-400">fonts/</span>
+│   ├── <span class="text-blue-400">images/</span>
+│   ├── <span class="text-blue-400">ibs/</span>
+│   └── <span class="text-emerald-400">main.css</span>
+├── <span class="text-blue-400">dist/</span>                    <span class="text-slate-500"># Результат сборки</span>
+├── <span class="text-blue-400">scripts/</span>
+├── <span class="text-emerald-400">gulpfile.js</span>              <span class="text-slate-500"># Конфигурация Gulp</span>
+├── <span class="text-emerald-400">package.json</span>             <span class="text-slate-500"># Зависимости и скрипты</span>
+├── <span class="text-emerald-400">tailwind.config.js</span>       <span class="text-slate-500"># Tailwind CSS</span>
+├── <span class="text-emerald-400">.eslintrc.cjs</span>            <span class="text-slate-500"># ESLint</span>
+└── <span class="text-emerald-400">.prettierrc.json</span>         <span class="text-slate-500"># Prettier</span></pre>
         </div>
       </section>
 
-      <section id="components" class="handbook-section">
-        <h2>🧩 HTML Компоненты (Partials)</h2>
-        <div class="component-grid">
-          <div class="component-card">
-            <h3>Header</h3>
-            <code>@@include('header.html')</code>
-            <p>Шапка сайта. Подключается в начале каждой страницы.</p>
+      <section id="components" class="bg-white rounded-lg p-6 mb-6 shadow-sm">
+        <h2 class="text-xl font-bold text-slate-800 mb-4 pb-2 border-b-2 border-slate-200">🧩 HTML Компоненты (Partials)</h2>
+        <div class="grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-4">
+          <div class="bg-slate-50 border border-slate-200 rounded-md p-4">
+            <h3 class="text-base font-semibold text-slate-800 mb-2">Header</h3>
+            <code class="block bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs mb-2">@@include('header.html')</code>
+            <p class="text-sm text-slate-500 m-0">Шапка сайта. Подключается в начале каждой страницы.</p>
           </div>
-          <div class="component-card">
-            <h3>Footer</h3>
-            <code>@@include('footer.html')</code>
-            <p>Подвал сайта. Подключается в конце каждой страницы.</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="scripts" class="handbook-section">
-        <h2>📜 JavaScript Модули</h2>
-        <div class="component-grid">
-          <div class="component-card">
-            <h3>main.js</h3>
-            <code>src/js/main.js</code>
-            <p>Основной файл инициализации. Точка входа для всех скриптов.</p>
-          </div>
-          <div class="component-card">
-            <h3>mobile-menu.js</h3>
-            <code>src/js/mobile-menu.js</code>
-            <p>Логика мобильного меню (открытие/закрытие, переключение классов).</p>
-          </div>
-          <div class="component-card">
-            <h3>modal.js</h3>
-            <code>src/js/modal.js</code>
-            <p>Управление модальными окнами. Интеграция с @fancyapps/ui.</p>
+          <div class="bg-slate-50 border border-slate-200 rounded-md p-4">
+            <h3 class="text-base font-semibold text-slate-800 mb-2">Footer</h3>
+            <code class="block bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs mb-2">@@include('footer.html')</code>
+            <p class="text-sm text-slate-500 m-0">Подвал сайта. Подключается в конце каждой страницы.</p>
           </div>
         </div>
       </section>
 
-      <section id="commands" class="handbook-section">
-        <h2>⚙️ NPM Команды</h2>
-        <table class="command-table">
-          <thead>
-            <tr>
-              <th>Команда</th>
-              <th>Описание</th>
-              <th>Режим</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><code>npm run dev</code></td>
-              <td>Запуск сервера разработки с автообновлением</td>
-              <td><span class="badge badge-dev">dev</span></td>
-            </tr>
-            <tr>
-              <td><code>npm run build</code></td>
-              <td>Сборка проекта в production (без минификации)</td>
-              <td><span class="badge badge-prod">prod</span></td>
-            </tr>
-            <tr>
-              <td><code>npm run clean</code></td>
-              <td>Очистка папки dist/</td>
-              <td><span class="badge badge-clean">clean</span></td>
-            </tr>
-            <tr>
-              <td><code>npm run lint</code></td>
-              <td>Проверка кода через ESLint</td>
-              <td><span class="badge badge-dev">dev</span></td>
-            </tr>
-            <tr>
-              <td><code>npm run lint:fix</code></td>
-              <td>Исправление ошибок ESLint автоматически</td>
-              <td><span class="badge badge-dev">dev</span></td>
-            </tr>
-            <tr>
-              <td><code>npm run format</code></td>
-              <td>Форматирование кода через Prettier</td>
-              <td><span class="badge badge-dev">dev</span></td>
-            </tr>
-            <tr>
-              <td><code>npm run format:check</code></td>
-              <td>Проверка форматирования без изменений</td>
-              <td><span class="badge badge-dev">dev</span></td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-
-      <section id="paths" class="handbook-section">
-        <h2>🗂️ Пути в Gulpfile</h2>
-        <table class="command-table">
-          <thead>
-            <tr>
-              <th>Тип</th>
-              <th>Исходник</th>
-              <th>Назначение</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>HTML Pages</td>
-              <td><code>src/html/pages/**/*.html</code></td>
-              <td>Основные HTML страницы</td>
-            </tr>
-            <tr>
-              <td>HTML Partials</td>
-              <td><code>src/html/partials/</code></td>
-              <td>Компоненты для include</td>
-            </tr>
-            <tr>
-              <td>Styles</td>
-              <td><code>src/main.css</code></td>
-              <td>Главный CSS файл (Tailwind)</td>
-            </tr>
-            <tr>
-              <td>Scripts</td>
-              <td><code>src/js/**/*.js</code></td>
-              <td>JavaScript модули</td>
-            </tr>
-            <tr>
-              <td>Images</td>
-              <td><code>src/images/**/*</code></td>
-              <td>Изображения</td>
-            </tr>
-            <tr>
-              <td>Fonts</td>
-              <td><code>src/fonts/**/*</code></td>
-              <td>Шрифты</td>
-            </tr>
-            <tr>
-              <td>IBS</td>
-              <td><code>src/ibs/**/*</code></td>
-              <td>Дополнительные файлы</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-
-      <section class="handbook-section">
-        <h2>🔗 Быстрые ссылки</h2>
-        <div class="component-grid">
-          <div class="component-card">
-            <h3>Открыть страницу</h3>
-            <code><a href="index.html" class="link-path" target="_blank">index.html</a></code>
-            <p>Перейти на главную страницу проекта</p>
+      <section id="scripts" class="bg-white rounded-lg p-6 mb-6 shadow-sm">
+        <h2 class="text-xl font-bold text-slate-800 mb-4 pb-2 border-b-2 border-slate-200">📜 JavaScript Модули</h2>
+        <div class="grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-4">
+          <div class="bg-slate-50 border border-slate-200 rounded-md p-4">
+            <h3 class="text-base font-semibold text-slate-800 mb-2">main.js</h3>
+            <code class="block bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs mb-2">src/js/main.js</code>
+            <p class="text-sm text-slate-500 m-0">Основной файл инициализации. Точка входа для всех скриптов.</p>
           </div>
-          <div class="component-card">
-            <h3>Папка dist/</h3>
-            <code><a href="../dist/" class="link-path" target="_blank">dist/</a></code>
-            <p>Результат сборки (если существует)</p>
+          <div class="bg-slate-50 border border-slate-200 rounded-md p-4">
+            <h3 class="text-base font-semibold text-slate-800 mb-2">mobile-menu.js</h3>
+            <code class="block bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs mb-2">src/js/mobile-menu.js</code>
+            <p class="text-sm text-slate-500 m-0">Логика мобильного меню (открытие/закрытие, переключение классов).</p>
+          </div>
+          <div class="bg-slate-50 border border-slate-200 rounded-md p-4">
+            <h3 class="text-base font-semibold text-slate-800 mb-2">modal.js</h3>
+            <code class="block bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs mb-2">src/js/modal.js</code>
+            <p class="text-sm text-slate-500 m-0">Управление модальными окнами. Интеграция с @fancyapps/ui.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="commands" class="bg-white rounded-lg p-6 mb-6 shadow-sm">
+        <h2 class="text-xl font-bold text-slate-800 mb-4 pb-2 border-b-2 border-slate-200">⚙️ NPM Команды</h2>
+        <div class="overflow-x-auto">
+          <table class="w-full border-collapse text-sm">
+            <thead>
+              <tr>
+                <th class="py-3 px-3 text-left bg-slate-50 font-semibold text-slate-800 border-b border-slate-200">Команда</th>
+                <th class="py-3 px-3 text-left bg-slate-50 font-semibold text-slate-800 border-b border-slate-200">Описание</th>
+                <th class="py-3 px-3 text-left bg-slate-50 font-semibold text-slate-800 border-b border-slate-200">Режим</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="py-3 px-3 border-b border-slate-200"><code class="bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs">npm run dev</code></td>
+                <td class="py-3 px-3 border-b border-slate-200">Запуск сервера разработки с автообновлением</td>
+                <td class="py-3 px-3 border-b border-slate-200"><span class="inline-block px-2 py-1 rounded text-xs font-semibold bg-blue-100 text-blue-800">dev</span></td>
+              </tr>
+              <tr>
+                <td class="py-3 px-3 border-b border-slate-200"><code class="bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs">npm run build</code></td>
+                <td class="py-3 px-3 border-b border-slate-200">Сборка проекта в production (без минификации)</td>
+                <td class="py-3 px-3 border-b border-slate-200"><span class="inline-block px-2 py-1 rounded text-xs font-semibold bg-green-100 text-green-800">prod</span></td>
+              </tr>
+              <tr>
+                <td class="py-3 px-3 border-b border-slate-200"><code class="bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs">npm run clean</code></td>
+                <td class="py-3 px-3 border-b border-slate-200">Очистка папки dist/</td>
+                <td class="py-3 px-3 border-b border-slate-200"><span class="inline-block px-2 py-1 rounded text-xs font-semibold bg-red-100 text-red-800">clean</span></td>
+              </tr>
+              <tr>
+                <td class="py-3 px-3 border-b border-slate-200"><code class="bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs">npm run lint</code></td>
+                <td class="py-3 px-3 border-b border-slate-200">Проверка кода через ESLint</td>
+                <td class="py-3 px-3 border-b border-slate-200"><span class="inline-block px-2 py-1 rounded text-xs font-semibold bg-blue-100 text-blue-800">dev</span></td>
+              </tr>
+              <tr>
+                <td class="py-3 px-3 border-b border-slate-200"><code class="bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs">npm run lint:fix</code></td>
+                <td class="py-3 px-3 border-b border-slate-200">Исправление ошибок ESLint автоматически</td>
+                <td class="py-3 px-3 border-b border-slate-200"><span class="inline-block px-2 py-1 rounded text-xs font-semibold bg-blue-100 text-blue-800">dev</span></td>
+              </tr>
+              <tr>
+                <td class="py-3 px-3 border-b border-slate-200"><code class="bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs">npm run format</code></td>
+                <td class="py-3 px-3 border-b border-slate-200">Форматирование кода через Prettier</td>
+                <td class="py-3 px-3 border-b border-slate-200"><span class="inline-block px-2 py-1 rounded text-xs font-semibold bg-blue-100 text-blue-800">dev</span></td>
+              </tr>
+              <tr>
+                <td class="py-3 px-3 border-b border-slate-200"><code class="bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs">npm run format:check</code></td>
+                <td class="py-3 px-3 border-b border-slate-200">Проверка форматирования без изменений</td>
+                <td class="py-3 px-3 border-b border-slate-200"><span class="inline-block px-2 py-1 rounded text-xs font-semibold bg-blue-100 text-blue-800">dev</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="paths" class="bg-white rounded-lg p-6 mb-6 shadow-sm">
+        <h2 class="text-xl font-bold text-slate-800 mb-4 pb-2 border-b-2 border-slate-200">🗂️ Пути в Gulpfile</h2>
+        <div class="overflow-x-auto">
+          <table class="w-full border-collapse text-sm">
+            <thead>
+              <tr>
+                <th class="py-3 px-3 text-left bg-slate-50 font-semibold text-slate-800 border-b border-slate-200">Тип</th>
+                <th class="py-3 px-3 text-left bg-slate-50 font-semibold text-slate-800 border-b border-slate-200">Исходник</th>
+                <th class="py-3 px-3 text-left bg-slate-50 font-semibold text-slate-800 border-b border-slate-200">Назначение</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="py-3 px-3 border-b border-slate-200">HTML Pages</td>
+                <td class="py-3 px-3 border-b border-slate-200"><code class="bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs">src/html/pages/**/*.html</code></td>
+                <td class="py-3 px-3 border-b border-slate-200">Основные HTML страницы</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-3 border-b border-slate-200">HTML Partials</td>
+                <td class="py-3 px-3 border-b border-slate-200"><code class="bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs">src/html/partials/</code></td>
+                <td class="py-3 px-3 border-b border-slate-200">Компоненты для include</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-3 border-b border-slate-200">Styles</td>
+                <td class="py-3 px-3 border-b border-slate-200"><code class="bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs">src/main.css</code></td>
+                <td class="py-3 px-3 border-b border-slate-200">Главный CSS файл (Tailwind)</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-3 border-b border-slate-200">Scripts</td>
+                <td class="py-3 px-3 border-b border-slate-200"><code class="bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs">src/js/**/*.js</code></td>
+                <td class="py-3 px-3 border-b border-slate-200">JavaScript модули</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-3 border-b border-slate-200">Images</td>
+                <td class="py-3 px-3 border-b border-slate-200"><code class="bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs">src/images/**/*</code></td>
+                <td class="py-3 px-3 border-b border-slate-200">Изображения</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-3 border-b border-slate-200">Fonts</td>
+                <td class="py-3 px-3 border-b border-slate-200"><code class="bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs">src/fonts/**/*</code></td>
+                <td class="py-3 px-3 border-b border-slate-200">Шрифты</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-3 border-b border-slate-200">IBS</td>
+                <td class="py-3 px-3 border-b border-slate-200"><code class="bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs">src/ibs/**/*</code></td>
+                <td class="py-3 px-3 border-b border-slate-200">Дополнительные файлы</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="bg-white rounded-lg p-6 mb-6 shadow-sm">
+        <h2 class="text-xl font-bold text-slate-800 mb-4 pb-2 border-b-2 border-slate-200">🔗 Быстрые ссылки</h2>
+        <div class="grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-4">
+          <div class="bg-slate-50 border border-slate-200 rounded-md p-4">
+            <h3 class="text-base font-semibold text-slate-800 mb-2">Открыть страницу</h3>
+            <code class="block"><a href="index.html" class="text-blue-500 no-underline hover:underline" target="_blank">index.html</a></code>
+            <p class="text-sm text-slate-500 m-0">Перейти на главную страницу проекта</p>
+          </div>
+          <div class="bg-slate-50 border border-slate-200 rounded-md p-4">
+            <h3 class="text-base font-semibold text-slate-800 mb-2">Папка dist/</h3>
+            <code class="block"><a href="../dist/" class="text-blue-500 no-underline hover:underline" target="_blank">dist/</a></code>
+            <p class="text-sm text-slate-500 m-0">Результат сборки (если существует)</p>
           </div>
         </div>
       </section>
