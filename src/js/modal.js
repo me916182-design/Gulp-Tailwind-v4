@@ -1,50 +1,93 @@
 /**
- * Модальное окно — логика работы
+ * Модальные окна — логика работы
  *
  * Использование:
- * - Открыть: <button data-modal-open>
+ * - Открыть: <button data-modal-open="name">
+ * - Модальное окно: <div id="modal-name" data-modal="name">
  * - Закрыть: <button data-modal-close> или клик вне контента
  */
 
-function init() {
-  const modal = document.getElementById('modal');
-  const modalOverlay = modal?.querySelector('.modal-overlay');
-  const modalContent = modal?.querySelector('.modal-content');
+export function init() {
+  // Стек открытых модальных окон (для поддержки нескольких)
+  const openModals = [];
 
-  if (!modal || !modalOverlay || !modalContent) return;
+  // Получить модальное окно по имени
+  const getModal = (name) => {
+    const modal = document.getElementById(`modal-${name}`) || document.querySelector(`[data-modal="${name}"]`);
+    if (!modal) return null;
+    return {
+      modal,
+      overlay: modal.querySelector('.modal-overlay'),
+      content: modal.querySelector('.modal-content'),
+    };
+  };
 
   // Открытие модального окна
-  const openModal = () => {
-    document.body.classList.add('modal-open');
+  const openModal = (name) => {
+    const modalData = getModal(name);
+    if (!modalData || !modalData.modal) return;
+
+    const { modal, overlay, content } = modalData;
+
+    // Если уже открыто — не открываем повторно
+    if (openModals.includes(name)) return;
+
+    // Блокируем скролл body при первом модальном
+    if (openModals.length === 0) {
+      document.body.classList.add('modal-open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    openModals.push(name);
     modal.classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
 
     // Анимация появления
     requestAnimationFrame(() => {
-      modalOverlay.classList.remove('opacity-0');
-      modalContent.classList.remove('opacity-0', 'scale-95');
-      modalContent.classList.add('opacity-100', 'scale-100');
+      overlay?.classList.remove('opacity-0');
+      content?.classList.remove('opacity-0', 'scale-95');
+      content?.classList.add('opacity-100', 'scale-100');
     });
   };
 
   // Закрытие модального окна
-  const closeModal = () => {
-    document.body.classList.remove('modal-open');
-    modalOverlay.classList.add('opacity-0');
-    modalContent.classList.remove('opacity-100', 'scale-100');
-    modalContent.classList.add('opacity-0', 'scale-95');
+  const closeModal = (name) => {
+    const modalData = getModal(name);
+    if (!modalData || !modalData.modal) return;
+
+    const { modal, overlay, content } = modalData;
+
+    // Анимация закрытия
+    overlay?.classList.add('opacity-0');
+    content?.classList.remove('opacity-100', 'scale-100');
+    content?.classList.add('opacity-0', 'scale-95');
 
     setTimeout(() => {
       modal.classList.add('hidden');
-      document.body.style.overflow = '';
+      openModals.splice(openModals.indexOf(name), 1);
+
+      // Возвращаем скролл, если закрыли последнее модальное
+      if (openModals.length === 0) {
+        document.body.classList.remove('modal-open');
+        document.body.style.overflow = '';
+      }
     }, 300);
+  };
+
+  // Закрытие последнего открытого модального окна
+  const closeLastModal = () => {
+    if (openModals.length > 0) {
+      closeModal(openModals[openModals.length - 1]);
+    }
   };
 
   // Обработчик открытия по data-modal-open
   document.addEventListener('click', (e) => {
     const openBtn = e.target.closest('[data-modal-open]');
     if (openBtn) {
-      openModal();
+      const modalName = openBtn.getAttribute('data-modal-open');
+      if (modalName) {
+        openModal(modalName);
+      }
     }
   });
 
@@ -52,21 +95,28 @@ function init() {
   document.addEventListener('click', (e) => {
     const closeBtn = e.target.closest('[data-modal-close]');
     if (closeBtn) {
-      closeModal();
+      closeLastModal();
     }
   });
 
   // Закрытие по клику вне контента (на overlay)
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal || e.target === modalOverlay) {
-      closeModal();
+  document.addEventListener('click', (e) => {
+    if (openModals.length === 0) return;
+
+    const currentModalName = openModals[openModals.length - 1];
+    const modalData = getModal(currentModalName);
+    if (!modalData) return;
+
+    const { modal, overlay } = modalData;
+    if (e.target === modal || e.target === overlay) {
+      closeLastModal();
     }
   });
 
   // Закрытие по Escape
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
-      closeModal();
+    if (e.key === 'Escape' && openModals.length > 0) {
+      closeLastModal();
     }
   });
 }

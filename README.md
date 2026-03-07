@@ -1,11 +1,11 @@
 # Gulp-сборка с Tailwind CSS v4
 
-Gulp-сборка с Tailwind CSS v4, HTML includes и модульной архитектурой.
+Современная Gulp-сборка с Tailwind CSS v4, модульными HTML-шаблонами и готовыми компонентами.
 
 ## 🚀 Технологии
 
 - **Gulp 5** — система сборки
-- **Tailwind CSS v4** — утилитарные стили
+- **Tailwind CSS v4** — утилитарные стили (нативный CSS-синтаксис)
 - **PostCSS** — обработка CSS
 - **BrowserSync** — локальный сервер с автообновлением
 - **ESLint + Prettier** — линтинг и форматирование кода
@@ -18,16 +18,15 @@ npm install
 
 ## 🛠 Команды
 
-| Команда                | Описание                                      |
-| ---------------------- | --------------------------------------------- |
-| `npm run dev`          | Запуск dev-сервера, watch-режим               |
-| `npm run build`        | Сборка проекта в `dist/`                      |
-| `npm run build:prod`   | Продакшн-сборка (минификация, без sourcemaps) |
-| `npm run clean`        | Очистка директории `dist/`                    |
-| `npm run lint`         | Проверка JS файлов через ESLint               |
-| `npm run lint:fix`     | Исправление ESLint-ошибок                     |
-| `npm run format`       | Форматирование кода через Prettier            |
-| `npm run format:check` | Проверка форматирования                       |
+| Команда              | Описание                                      |
+| -------------------- | --------------------------------------------- |
+| `npm run dev`        | Запуск dev-сервера, watch-режим               |
+| `npm run build`      | Сборка проекта в `dist/`                      |
+| `npm run build:prod` | Продакшн-сборка (минификация, без sourcemaps) |
+| `npm run clean`      | Очистка директории `dist/`                    |
+| `npm run lint`       | Проверка JS файлов через ESLint               |
+| `npm run lint:fix`   | Исправление ESLint-ошибок                     |
+| `npm run format`     | Форматирование кода через Prettier            |
 
 ## 📁 Структура проекта
 
@@ -36,21 +35,22 @@ project/
 ├── src/
 │   ├── html/
 │   │   ├── pages/          # HTML-страницы (точка входа)
-│   │   │   └── index.html
+│   │   │   ├── index.html
+│   │   │   └── handbook.html
 │   │   └── partials/       # Переиспользуемые компоненты
 │   │       ├── header.html
 │   │       └── footer.html
-│   ├── images/             # Изображения (копируются в dist)
+│   ├── images/             # Изображения
 │   ├── fonts/              # Шрифты (woff2, woff, ttf)
 │   ├── js/
-│   │   └── main.js         # Основной JS-файл
-│   ├── ibs/                # Дополнительные файлы (копируются как есть)
-│   └── main.css            # Точка входа CSS (Tailwind + кастомные стили)
+│   │   ├── main.js         # Точка входа JS
+│   │   ├── modal.js        # Модальные окна
+│   │   └── mobile-menu.js  # Мобильное меню
+│   ├── ibs/                # Библиотеки (копируются как есть)
+│   └── main.css            # Точка входа CSS (Tailwind + стили)
 ├── dist/                   # Результат сборки
 ├── gulpfile.js             # Конфигурация Gulp
 ├── tailwind.config.js      # Настройки Tailwind CSS
-├── .eslintrc.cjs           # Конфигурация ESLint
-├── .prettierrc.json        # Конфигурация Prettier
 └── package.json
 ```
 
@@ -58,53 +58,83 @@ project/
 
 ### Tailwind CSS v4
 
-В проекте используется Tailwind CSS v4 с нативным CSS-синтаксисом:
+Используется нативный CSS-синтаксис Tailwind v4:
 
 ```css
 @import 'tailwindcss';
 
 @theme {
-  --color-primary: #3b82f6;
+  --color-brand: #3b82f6;
   --font-sans: 'Helvetica Neue', Arial, sans-serif;
-}
-
-@layer base {
-  body {
-    @apply bg-gray-50 text-gray-900;
-  }
-}
-
-@layer components {
-  .btn {
-    @apply px-6 py-3 rounded-lg font-semibold;
-  }
 }
 ```
 
-### Кастомные темы
+### Кастомные компоненты
 
-В `main.css` настроены:
+В `main.css` определены готовые классы:
 
-- Цветовая палитра (blue, gray, white, black)
-- Шрифты (Helvetica Neue, Courier New)
-- Размеры шрифтов (xs–4xl)
-- Отступы, радиусы, тени
-- Базовые стили и компоненты
+| Класс           | Описание                          |
+| --------------- | --------------------------------- |
+| `.btn-primary`  | Основная кнопка                   |
+| `.btn-secondary`| Вторичная кнопка                  |
+| `.card`         | Карточка с тенью и отступами      |
+| `.grid-auto-fit`| Адаптивная сетка (auto-fill)      |
+| `.container-custom` | Контейнер с адаптивной шириной |
+| `.text-truncate`| Обрезка текста с многоточием      |
+| `.flex-center`  | Центрирование flex-элементов      |
 
-## 🧩 HTML Includes
+## 🧩 Модульность HTML
 
-Используется плагин `gulp-file-include` для модульности:
+Используется `gulp-file-include` для подключения частей:
 
 ```html
 <!-- src/html/pages/index.html -->
 @@include('../partials/header.html')
 
-<main class="container-custom">
+<main>
   <h1>Добро пожаловать</h1>
 </main>
 
 @@include('../partials/footer.html')
 ```
+
+## 🪟 Модальные окна
+
+В сборку встроена система модальных окон с поддержкой нескольких окон одновременно.
+
+### Использование
+
+```html
+<!-- Кнопка открытия -->
+<button data-modal-open="login">Войти</button>
+
+<!-- Модальное окно -->
+<div id="modal-login" data-modal="login" class="modal fixed inset-0 z-50 hidden">
+  <div class="modal-overlay absolute inset-0 bg-black/50"></div>
+  <div class="modal-container flex min-h-full items-center justify-center p-4">
+    <div class="modal-content relative w-full max-w-lg bg-white p-6">
+      <button data-modal-close aria-label="Закрыть">✕</button>
+      <!-- Контент -->
+    </div>
+  </div>
+</div>
+```
+
+### Атрибуты
+
+| Атрибут | Описание |
+| ------- | -------- |
+| `data-modal-open="name"` | Кнопка открытия окна с именем `name` |
+| `data-modal="name"` | Разметка окна с именем `name` |
+| `id="modal-name"` | ID окна (рекомендуется `modal-{name}`) |
+| `data-modal-close` | Кнопка закрытия (закрывает последнее открытое) |
+
+### Особенности
+
+- Поддержка стека окон (можно открыть несколько)
+- Закрытие по клику на overlay, кнопке `data-modal-close` или клавише Escape
+- Анимация появления/исчезновения (300ms)
+- Блокировка прокрутки body при открытом окне
 
 ## 📦 Зависимости
 
@@ -120,17 +150,30 @@ project/
 
 ### Продакшн-зависимости
 
-- `@fancyapps/ui` ^6.0.34 (Fancybox)
+- `@fancyapps/ui` — Fancybox (опционально)
 
 ## 🎯 Особенности сборки
 
 - **Dev-режим**: sourcemaps, автообновление браузера, без минификации
 - **Prod-режим**: минификация CSS/JS, оптимизация изображений, без sourcemaps
 - **Кэширование**: `gulp-newer` для ускорения повторных сборок
-- **7-1 архитектура**: модульная структура SCSS/CSS
+- **Адаптивность**: mobile-first брейкпоинты (sm, md, lg, xl, 2xl)
+
+## 🔗 Быстрый старт
+
+```bash
+# Установка зависимостей
+npm install
+
+# Запуск dev-сервера
+npm run dev
+
+# Сборка для продакшена
+npm run build:prod
+```
+
+Dev-сервер запустится на `http://localhost:3000` (порт может отличаться).
 
 ## 📝 Лицензия
 
 Private
-
-# Gulp-Tailwind-v4

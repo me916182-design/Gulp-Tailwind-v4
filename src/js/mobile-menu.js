@@ -2,7 +2,7 @@
  * Мобильное меню — логика работы
  */
 
-function init() {
+export function init() {
   const menu = document.getElementById('mobile-menu');
   const menuPanel = menu?.querySelector('.mobile-menu-panel');
   const openBtn = document.getElementById('mobile-menu-btn');

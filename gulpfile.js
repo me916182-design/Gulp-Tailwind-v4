@@ -12,7 +12,8 @@ const browserSync = require('browser-sync').create();
 const { deleteAsync } = require('del');
 const gulpIf = require('gulp-if');
 const newer = require('gulp-newer');
-const terser = require('gulp-terser');
+const rollup = require('rollup');
+const { nodeResolve } = require('@rollup/plugin-node-resolve');
 
 const paths = {
   html: {
@@ -74,14 +75,18 @@ function styles() {
     .pipe(browserSync.stream());
 }
 
-function scripts() {
-  return src(paths.scripts.src)
-    .pipe(newer(paths.scripts.dest))
-    .pipe(dest(paths.scripts.dest))
-    .pipe(terser())
-    .pipe(rename({ suffix: '.min' }))
-    .pipe(dest(paths.scripts.dest))
-    .pipe(browserSync.stream());
+async function scripts() {
+  const bundle = await rollup.rollup({
+    input: 'src/js/main.js',
+    plugins: [nodeResolve()],
+  });
+
+  await bundle.write({
+    file: paths.scripts.dest + 'main.js',
+    format: 'iife',
+  });
+
+  browserSync.stream();
 }
 
 function ibs() {
@@ -147,7 +152,7 @@ function serve() {
 
   watch(paths.html.watch, html);
   watch(paths.styles.watch, styles);
-  watch(paths.scripts.src, scripts);
+  watch('src/js/main.js', scripts);
   watch(paths.images.src, images);
   watch(paths.fonts.src, fonts);
 }
