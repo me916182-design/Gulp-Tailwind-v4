@@ -63,17 +63,15 @@ function html() {
 }
 
 function styles() {
-  return (
-    src(paths.styles.src)
-      .pipe(gulpIf(!isProd, sourcemaps.init()))
-      .pipe(postcss([tailwindcss()]))
-      .pipe(dest(paths.styles.dest))
-      .pipe(rename({ suffix: '.min' }))
-      .pipe(postcss([cssnano()]))
-      .pipe(gulpIf(!isProd, sourcemaps.write('.')))
-      .pipe(dest(paths.styles.dest))
-      .pipe(browserSync.stream())
-  );
+  return src(paths.styles.src)
+    .pipe(gulpIf(!isProd, sourcemaps.init()))
+    .pipe(postcss([tailwindcss()]))
+    .pipe(dest(paths.styles.dest))
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(postcss([cssnano()]))
+    .pipe(gulpIf(!isProd, sourcemaps.write('.')))
+    .pipe(dest(paths.styles.dest))
+    .pipe(browserSync.stream());
 }
 
 function scripts() {
@@ -154,12 +152,7 @@ function serve() {
   watch(paths.fonts.src, fonts);
 }
 
-const build = series(
-  clean,
-  parallel(html, scripts, ibs, fonts),
-  styles,
-  images
-);
+const build = series(clean, parallel(html, scripts, ibs, fonts), styles, images);
 
 function setProd(done) {
   process.env.NODE_ENV = 'production';

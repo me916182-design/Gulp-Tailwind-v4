@@ -18,16 +18,16 @@ npm install
 
 ## 🛠 Команды
 
-| Команда | Описание |
-|---------|----------|
-| `npm run dev` | Запуск dev-сервера, watch-режим |
-| `npm run build` | Сборка проекта в `dist/` |
-| `npm run build:prod` | Продакшн-сборка (минификация, без sourcemaps) |
-| `npm run clean` | Очистка директории `dist/` |
-| `npm run lint` | Проверка JS файлов через ESLint |
-| `npm run lint:fix` | Исправление ESLint-ошибок |
-| `npm run format` | Форматирование кода через Prettier |
-| `npm run format:check` | Проверка форматирования |
+| Команда                | Описание                                      |
+| ---------------------- | --------------------------------------------- |
+| `npm run dev`          | Запуск dev-сервера, watch-режим               |
+| `npm run build`        | Сборка проекта в `dist/`                      |
+| `npm run build:prod`   | Продакшн-сборка (минификация, без sourcemaps) |
+| `npm run clean`        | Очистка директории `dist/`                    |
+| `npm run lint`         | Проверка JS файлов через ESLint               |
+| `npm run lint:fix`     | Исправление ESLint-ошибок                     |
+| `npm run format`       | Форматирование кода через Prettier            |
+| `npm run format:check` | Проверка форматирования                       |
 
 ## 📁 Структура проекта
 
@@ -61,11 +61,11 @@ project/
 В проекте используется Tailwind CSS v4 с нативным CSS-синтаксисом:
 
 ```css
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
   --color-primary: #3b82f6;
-  --font-sans: "Helvetica Neue", Arial, sans-serif;
+  --font-sans: 'Helvetica Neue', Arial, sans-serif;
 }
 
 @layer base {
@@ -84,6 +84,7 @@ project/
 ### Кастомные темы
 
 В `main.css` настроены:
+
 - Цветовая палитра (blue, gray, white, black)
 - Шрифты (Helvetica Neue, Courier New)
 - Размеры шрифтов (xs–4xl)
@@ -108,6 +109,7 @@ project/
 ## 📦 Зависимости
 
 ### Dev-зависимости
+
 - `gulp` ^5.0.1
 - `tailwindcss` ^4.2.1
 - `@tailwindcss/postcss` ^4.2.1
@@ -117,6 +119,7 @@ project/
 - `prettier` ^3.6.2
 
 ### Продакшн-зависимости
+
 - `@fancyapps/ui` ^6.0.34 (Fancybox)
 
 ## 🎯 Особенности сборки
@@ -129,4 +132,5 @@ project/
 ## 📝 Лицензия
 
 Private
+
 # Gulp-Tailwind-v4
