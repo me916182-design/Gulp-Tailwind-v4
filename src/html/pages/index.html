@@ -1,25 +1,358 @@
 <!doctype html>
 <html lang="ru">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>STARTING</title>
-    <link rel="stylesheet" href="./css/main.min.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Современный шаблон на Tailwind CSS v4 с адаптивным дизайном, готовыми компонентами и утилитами" />
+    <title>Tailwind CSS v4 — Современный шаблон</title>
+    <link rel="stylesheet" href="css/main.css" />
   </head>
-  <body class="bg-gray-100 text-gray-900">
+  <body class="bg-gray-50">
+    <!-- Header -->
     @@include('header.html')
-    <main class="py-8 container mx-auto px-4">
-      <div class="bg-white p-6 rounded-lg shadow-md">
-        <h1 class="text-2xl font-bold mb-4 text-blue-600">Test Heading</h1>
-        <p class="mb-4">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus consequuntur laudantium
-          veniam eius mollitia rerum laborum cum, fuga corrupti dignissimos.
-        </p>
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-          Click me
-        </button>
+
+    <!-- Модальное окно -->
+    <div id="modal" class="modal fixed inset-0 z-50 hidden" role="dialog" aria-modal="true">
+      <!-- Затемнение фона -->
+      <div
+        class="modal-overlay absolute inset-0 bg-black/50 opacity-0 transition-opacity duration-300"
+      ></div>
+
+      <!-- Контент модального окна -->
+      <div class="modal-container flex min-h-full items-center justify-center p-4">
+        <div
+          class="modal-content relative w-full max-w-lg scale-95 transform rounded-xl bg-white p-6 opacity-0 shadow-2xl transition-all duration-300"
+        >
+          <!-- Заголовок с кнопкой закрытия -->
+          <div class="mb-4 flex items-center justify-between">
+            <h3 class="font-heading text-2xl font-bold text-gray-900">Заголовок модального окна</h3>
+            <button
+              data-modal-close
+              class="rounded-lg p-2 text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-700"
+              aria-label="Закрыть"
+            >
+              <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Тело модального окна -->
+          <div class="modal-body text-gray-600">
+            <p>
+              Это пример модального окна. Здесь может быть любой контент: формы, изображения, текст
+              и т.д.
+            </p>
+          </div>
+
+          <!-- Футер с кнопками -->
+          <div class="mt-6 flex justify-end gap-3">
+            <button data-modal-close class="btn-secondary rounded-lg px-4 py-2">Отмена</button>
+            <button class="btn-primary rounded-lg px-4 py-2">Подтвердить</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Основной контент -->
+    <main>
+      <div class="container-custom">
+        <!-- Секция: Герой -->
+        <section class="mb-16 mt-8">
+          <div class="mx-auto max-w-4xl text-center">
+            <span class="mb-4 inline-block rounded-full bg-brand/10 px-4 py-1.5 text-sm font-medium text-brand">
+              Tailwind CSS v4.0
+            </span>
+            <h1 class="mb-6 text-4xl font-bold sm:text-5xl lg:text-6xl">
+              Создавайте сайты <span class="text-brand">быстрее</span>
+            </h1>
+            <p class="mb-8 text-lg text-gray-600 sm:text-xl">
+              Современный стартовый шаблон с готовыми компонентами, адаптивной вёрсткой и кастомными утилитами
+            </p>
+            <div class="flex flex-col justify-center gap-4 sm:flex-row">
+              <a href="#components" class="btn-primary">Компоненты</a>
+              <a href="#features" class="btn-secondary">Возможности</a>
+              <button data-modal-open class="btn-secondary">Демо модального окна</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Секция: Преимущества -->
+        <section id="features" class="mb-16">
+          <h2 class="mb-4 text-center text-3xl font-bold">Почему Tailwind CSS?</h2>
+          <p class="mx-auto mb-8 max-w-2xl text-center text-gray-600">
+            Утилитарный подход к вёрстке, который ускоряет разработку и упрощает поддержку
+          </p>
+
+          <div class="grid-auto-fit">
+            <div class="card">
+              <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100">
+                <svg class="h-6 w-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h3 class="mb-2 text-xl font-semibold">Быстрая разработка</h3>
+              <p class="text-gray-600">Готовые утилиты для любых задач. Не нужно придумывать названия классов.</p>
+            </div>
+
+            <div class="card">
+              <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-green-100">
+                <svg class="h-6 w-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <h3 class="mb-2 text-xl font-semibold">Адаптивность</h3>
+              <p class="text-gray-600">Mobile-first брейкпоинты для создания отзывчивых интерфейсов.</p>
+            </div>
+
+            <div class="card">
+              <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-purple-100">
+                <svg class="h-6 w-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                </svg>
+              </div>
+              <h3 class="mb-2 text-xl font-semibold">Кастомизация</h3>
+              <p class="text-gray-600">Легко настроить цвета, шрифты, тени и другие параметры темы.</p>
+            </div>
+
+            <div class="card">
+              <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-orange-100">
+                <svg class="h-6 w-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+                </svg>
+              </div>
+              <h3 class="mb-2 text-xl font-semibold">Малый размер</h3>
+              <p class="text-gray-600">PurgeCSS удаляет неиспользуемые стили, оставляя только нужное.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Секция: Компоненты -->
+        <section id="components" class="mb-16">
+          <h2 class="mb-4 text-center text-3xl font-bold">Готовые компоненты</h2>
+          <p class="mx-auto mb-8 max-w-2xl text-center text-gray-600">
+            Компоненты, созданные с помощью @layer components в Tailwind
+          </p>
+
+          <div class="grid-auto-fit">
+            <!-- Карточка: Кнопки -->
+            <div class="card">
+              <h3 class="mb-3 text-xl font-semibold">Кнопки</h3>
+              <p class="mb-4 text-gray-600">Готовые стили для основных действий</p>
+              <div class="flex flex-wrap gap-3">
+                <button class="btn-primary">Primary</button>
+                <button class="btn-secondary">Secondary</button>
+              </div>
+            </div>
+
+            <!-- Карточка: Типографика -->
+            <div class="card">
+              <h3 class="mb-3 text-xl font-semibold">Типографика</h3>
+              <p class="mb-4 text-gray-600">Иерархия заголовков и текст</p>
+              <h1 class="mb-2 text-2xl font-bold">Заголовок H1</h1>
+              <h2 class="mb-2 text-xl font-semibold">Заголовок H2</h2>
+              <p class="text-base text-gray-600">Обычный текст с описанием</p>
+            </div>
+
+            <!-- Карточка: Тени -->
+            <div class="card">
+              <h3 class="mb-3 text-xl font-semibold">Тени</h3>
+              <p class="mb-4 text-gray-600">Кастомные тени shadow-soft и shadow-hard</p>
+              <div class="flex gap-4">
+                <div class="shadow-soft h-20 w-20 rounded-lg bg-white"></div>
+                <div class="shadow-hard h-20 w-20 rounded-lg bg-white"></div>
+              </div>
+            </div>
+
+            <!-- Карточка: Карточки -->
+            <div class="card">
+              <h3 class="mb-3 text-xl font-semibold">Карточки</h3>
+              <p class="mb-4 text-gray-600">Базовый стиль карточек</p>
+              <div class="rounded-lg border bg-white p-4">
+                <p class="font-medium">Пример вложенной карточки</p>
+                <p class="text-sm text-gray-500">С границей и отступами</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Секция: Сетка (Grid) -->
+        <section id="grid" class="mb-16">
+          <h2 class="mb-4 text-center text-3xl font-bold">Адаптивная сетка</h2>
+          <p class="mx-auto mb-8 max-w-2xl text-center text-gray-600">
+            Grid-система с брейкпоинтами: от 1 колонки на мобильных до 3+ на десктопе
+          </p>
+
+          <!-- Пример 1: Классическая сетка -->
+          <div class="mb-8">
+            <h3 class="mb-4 text-lg font-semibold">grid-cols-1 → md:grid-cols-2 → lg:grid-cols-3</h3>
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+              <div class="flex items-center justify-center rounded-lg bg-gradient-to-br from-blue-50 to-blue-100 p-6">
+                <span class="font-medium text-blue-700">Элемент 1</span>
+              </div>
+              <div class="flex items-center justify-center rounded-lg bg-gradient-to-br from-green-50 to-green-100 p-6">
+                <span class="font-medium text-green-700">Элемент 2</span>
+              </div>
+              <div class="flex items-center justify-center rounded-lg bg-gradient-to-br from-purple-50 to-purple-100 p-6">
+                <span class="font-medium text-purple-700">Элемент 3</span>
+              </div>
+              <div class="flex items-center justify-center rounded-lg bg-gradient-to-br from-orange-50 to-orange-100 p-6">
+                <span class="font-medium text-orange-700">Элемент 4</span>
+              </div>
+              <div class="flex items-center justify-center rounded-lg bg-gradient-to-br from-pink-50 to-pink-100 p-6">
+                <span class="font-medium text-pink-700">Элемент 5</span>
+              </div>
+              <div class="flex items-center justify-center rounded-lg bg-gradient-to-br from-cyan-50 to-cyan-100 p-6">
+                <span class="font-medium text-cyan-700">Элемент 6</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Пример 2: Авто-заполнение -->
+          <div>
+            <h3 class="mb-4 text-lg font-semibold">grid-auto-fit — автоматическое заполнение</h3>
+            <div class="grid-auto-fit">
+              <div class="rounded-lg bg-white p-6 shadow-sm">
+                <h4 class="mb-2 font-semibold">Карточка 1</h4>
+                <p class="text-sm text-gray-600">Автоматически подстраивается под размер контейнера</p>
+              </div>
+              <div class="rounded-lg bg-white p-6 shadow-sm">
+                <h4 class="mb-2 font-semibold">Карточка 2</h4>
+                <p class="text-sm text-gray-600">Минимальная ширина 280px</p>
+              </div>
+              <div class="rounded-lg bg-white p-6 shadow-sm">
+                <h4 class="mb-2 font-semibold">Карточка 3</h4>
+                <p class="text-sm text-gray-600">Без медиа-запросов</p>
+              </div>
+              <div class="rounded-lg bg-white p-6 shadow-sm">
+                <h4 class="mb-2 font-semibold">Карточка 4</h4>
+                <p class="text-sm text-gray-600">Чистый CSS</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Секция: Адаптивность -->
+        <section id="responsive" class="mb-16">
+          <h2 class="mb-4 text-center text-3xl font-bold">Адаптивность</h2>
+          <p class="mx-auto mb-8 max-w-2xl text-center text-gray-600">
+            Брейкпоинты: sm (640px) • md (768px) • lg (1024px) • xl (1280px) • 2xl (1536px)
+          </p>
+
+          <div class="card">
+            <div class="text-center">
+              <p class="mb-6 text-brand font-medium">
+                Изменяйте размер окна — текст адаптируется под каждый брейкпоинт
+              </p>
+              <p class="text-sm text-gray-500 sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl">
+                sm → md → lg → xl → 2xl
+              </p>
+              <div class="mt-8 flex flex-col justify-center gap-4 md:flex-row">
+                <div class="rounded-lg bg-gradient-to-br from-indigo-50 to-indigo-100 p-6">
+                  <span class="block text-xs font-medium uppercase tracking-wider text-gray-500">Mobile</span>
+                  <span class="mt-1 block text-lg font-semibold text-indigo-700">flex-col</span>
+                  <span class="text-sm text-gray-600">Вертикально</span>
+                </div>
+                <div class="hidden rounded-lg bg-gradient-to-br from-emerald-50 to-emerald-100 p-6 md:block">
+                  <span class="block text-xs font-medium uppercase tracking-wider text-gray-500">Tablet+ (md)</span>
+                  <span class="mt-1 block text-lg font-semibold text-emerald-700">flex-row</span>
+                  <span class="text-sm text-gray-600">Горизонтально</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Секция: Утилиты -->
+        <section id="utilities" class="mb-16">
+          <h2 class="mb-4 text-center text-3xl font-bold">Кастомные утилиты</h2>
+          <p class="mx-auto mb-8 max-w-2xl text-center text-gray-600">
+            Дополнительные классы, определённые в @layer utilities
+          </p>
+
+          <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div class="card">
+              <h3 class="mb-2 text-lg font-semibold">.text-truncate</h3>
+              <p class="mb-3 text-sm text-gray-600">Обрезка текста с многоточием</p>
+              <div class="w-full rounded-lg bg-gray-100 p-3">
+                <p class="text-truncate text-sm">
+                  Очень длинный текст, который не помещается в контейнер и будет обрезан с многоточием
+                </p>
+              </div>
+            </div>
+
+            <div class="card">
+              <h3 class="mb-2 text-lg font-semibold">.flex-center</h3>
+              <p class="mb-3 text-sm text-gray-600">Центрирование flex-элементов</p>
+              <div class="flex-center h-24 rounded-lg bg-gray-100">
+                <span class="text-brand font-medium">По центру</span>
+              </div>
+            </div>
+
+            <div class="card">
+              <h3 class="mb-2 text-lg font-semibold">.container-custom</h3>
+              <p class="mb-3 text-sm text-gray-600">Контейнер с отступами</p>
+              <div class="rounded-lg border border-dashed border-gray-300 p-4 text-center">
+                <span class="text-sm text-gray-500">Адаптивный контейнер</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Секция: Статистика -->
+        <section class="mb-16">
+          <div class="rounded-2xl bg-gradient-to-r from-brand to-blue-600 p-8 text-white shadow-xl">
+            <h2 class="mb-8 text-center text-3xl font-bold">Возможности шаблона</h2>
+            <div class="grid grid-cols-2 gap-6 md:grid-cols-4">
+              <div class="text-center">
+                <div class="mb-2 text-4xl font-bold">4+</div>
+                <div class="text-sm opacity-90">Готовых компонента</div>
+              </div>
+              <div class="text-center">
+                <div class="mb-2 text-4xl font-bold">5</div>
+                <div class="text-sm opacity-90">Брейкпоинтов</div>
+              </div>
+              <div class="text-center">
+                <div class="mb-2 text-4xl font-bold">100%</div>
+                <div class="text-sm opacity-90">Адаптивности</div>
+              </div>
+              <div class="text-center">
+                <div class="mb-2 text-4xl font-bold">v4</div>
+                <div class="text-sm opacity-90">Tailwind CSS</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Секция: CTA -->
+        <section class="mb-16">
+          <div class="mx-auto max-w-3xl text-center">
+            <h2 class="mb-4 text-3xl font-bold">Готовы начать?</h2>
+            <p class="mb-8 text-gray-600">
+              Этот шаблон — отличная основа для вашего следующего проекта на Tailwind CSS
+            </p>
+            <div class="flex flex-col justify-center gap-4 sm:flex-row">
+              <a href="https://tailwindcss.com/docs" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                Документация Tailwind
+              </a>
+              <a href="https://github.com/tailwindlabs/tailwindcss" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+                GitHub репозиторий
+              </a>
+            </div>
+          </div>
+        </section>
       </div>
     </main>
+
+    <!-- Footer -->
     @@include('footer.html')
+
+    <!-- Скрипты -->
+    <script type="module" src="js/main.js"></script>
   </body>
 </html>
