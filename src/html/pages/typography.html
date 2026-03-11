@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Typography — Tailwind CSS</title>
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body class="bg-gray-50 min-h-screen">
+    <div class="max-w-4xl mx-auto px-8 py-12">
+      <!-- Заголовок страницы -->
+      <header class="mb-12">
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">📝 Typography Plugin</h1>
+        <p class="text-lg text-gray-600">
+          Пример использования <code class="bg-gray-200 px-2 py-1 rounded">@tailwindcss/typography</code> для стилизации контента
+        </p>
+        <nav class="mt-4">
+          <a href="handbook.html" class="text-blue-600 hover:underline">← Назад к справочнику</a>
+        </nav>
+      </header>
+
+      <!-- Пример 1: Базовая статья -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold text-gray-800 mb-6 pb-2 border-b-2 border-gray-200">
+          1. Базовая статья (prose)
+        </h2>
+        
+        <article class="prose max-w-none">
+          <h2>Введение в Tailwind CSS</h2>
+          
+          <p>
+            <strong>Tailwind CSS</strong> — это утилитарный CSS-фреймворк, который позволяет быстро
+            создавать современные интерфейсы без написания собственного CSS. В отличие от таких
+            библиотек, как Bootstrap, Tailwind не предоставляет готовых компонентов.
+          </p>
+
+          <h3>Почему Tailwind?</h3>
+          
+          <p>Вот несколько причин использовать Tailwind CSS:</p>
+
+          <ul>
+            <li>Быстрая разработка интерфейсов</li>
+            <li>Минимальный размер итогового CSS</li>
+            <li>Полная кастомизация через конфигурацию</li>
+            <li>Отличная документация и сообщество</li>
+          </ul>
+
+          <h3>Пример кода</h3>
+
+          <pre><code class="language-html">&lt;button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"&gt;
+  Click me
+&lt;/button&gt;</code></pre>
+
+          <blockquote>
+            <p>
+              Tailwind CSS позволяет сосредоточиться на создании интерфейса, а не на придумывании
+              имён классов.
+            </p>
+          </blockquote>
+
+          <p>
+            Для установки Tailwind CSS v4 выполните команду:
+          </p>
+
+          <pre><code>npm install tailwindcss @tailwindcss/postcss</code></pre>
+
+          <h3>Таблица цветов</h3>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Цвет</th>
+                <th>Класс</th>
+                <th>Пример</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Синий</td>
+                <td>blue-500</td>
+                <td><span class="inline-block w-6 h-6 bg-blue-500 rounded"></span></td>
+              </tr>
+              <tr>
+                <td>Зелёный</td>
+                <td>green-500</td>
+                <td><span class="inline-block w-6 h-6 bg-green-500 rounded"></span></td>
+              </tr>
+              <tr>
+                <td>Красный</td>
+                <td>red-500</td>
+                <td><span class="inline-block w-6 h-6 bg-red-500 rounded"></span></td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+      </section>
+
+      <!-- Пример 2: Кастомные стили prose -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold text-gray-800 mb-6 pb-2 border-b-2 border-gray-200">
+          2. Кастомные стили (prose-blue)
+        </h2>
+        
+        <article class="prose prose-blue max-w-none">
+          <h3>Синяя тема</h3>
+          
+          <p>
+            Класс <code>prose-blue</code> применяет синюю цветовую схему к заголовкам и ссылкам.
+            Это полезно для согласования с брендом вашего проекта.
+          </p>
+
+          <p>
+            <a href="#">Пример ссылки</a> будет синего цвета вместо стандартного.
+          </p>
+
+          <blockquote>
+            <p>Цитата также будет оформлена в синих тонах.</p>
+          </blockquote>
+        </article>
+      </section>
+
+      <!-- Пример 3: Тёмная тема -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold text-gray-800 mb-6 pb-2 border-b-2 border-gray-200">
+          3. Тёмная тема (prose-invert)
+        </h2>
+        
+        <div class="bg-gray-900 rounded-lg p-8">
+          <article class="prose prose-invert max-w-none">
+            <h3 class="text-white">Инвертированная тема</h3>
+            
+            <p class="text-gray-300">
+              Класс <code>prose-invert</code> предназначен для тёмных фонов. Он инвертирует цвета
+              текста и заголовков, делая их светлыми.
+            </p>
+
+            <ul class="text-gray-300">
+              <li>Белый текст на тёмном фоне</li>
+              <li>Светло-серые заголовки</li>
+              <li>Контрастные ссылки</li>
+            </ul>
+
+            <pre><code class="language-html">&lt;div class="bg-gray-900"&gt;
+  &lt;article class="prose prose-invert"&gt;
+    &lt;!-- Контент --&gt;
+  &lt;/article&gt;
+&lt;/div&gt;</code></pre>
+          </article>
+        </div>
+      </section>
+
+      <!-- Пример 4: Разные размеры -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold text-gray-800 mb-6 pb-2 border-b-2 border-gray-200">
+          4. Размеры типографики
+        </h2>
+        
+        <div class="grid gap-8">
+          <div>
+            <h3 class="text-lg font-semibold text-gray-700 mb-4">prose-sm (компактный)</h3>
+            <article class="prose prose-sm max-w-none border border-gray-200 rounded-lg p-6 bg-white">
+              <h4>Маленький размер</h4>
+              <p>
+                Этот текст имеет уменьшенный размер шрифта. Подходит для боковых панелей, карточек
+                и других компактных элементов интерфейса.
+              </p>
+            </article>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-gray-700 mb-4">prose-lg (крупный)</h3>
+            <article class="prose prose-lg max-w-none border border-gray-200 rounded-lg p-6 bg-white">
+              <h4>Большой размер</h4>
+              <p>
+                Увеличенный размер шрифта для лучшей читаемости. Идеально подходит для блогов,
+                статей и длинных текстов.
+              </p>
+            </article>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-gray-700 mb-4">prose-xl (очень крупный)</h3>
+            <article class="prose prose-xl max-w-none border border-gray-200 rounded-lg p-6 bg-white">
+              <h4>Очень большой размер</h4>
+              <p>
+                Максимальный размер для особого акцента. Используйте для важных объявлений или
+                специальных страниц.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Пример 5: Полная статья -->
+      <section>
+        <h2 class="text-2xl font-bold text-gray-800 mb-6 pb-2 border-b-2 border-gray-200">
+          5. Полная статья в блоге
+        </h2>
+        
+        <article class="prose prose-lg prose-blue max-w-none">
+          <h1>Как создать блог на Tailwind CSS</h1>
+          
+          <p class="lead">
+            Пошаговое руководство по созданию современного блога с использованием Tailwind CSS v4 и
+            плагина Typography.
+          </p>
+
+          <figure>
+            <img
+              src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&h=400&fit=crop"
+              alt="Рабочее место разработчика"
+              class="rounded-lg shadow-lg"
+            />
+            <figcaption>Современное рабочее место для разработки</figcaption>
+          </figure>
+
+          <h2>Шаг 1: Установка</h2>
+          
+          <p>Начните с установки Tailwind CSS и необходимых зависимостей:</p>
+
+          <pre><code>npm install tailwindcss @tailwindcss/postcss @tailwindcss/typography</code></pre>
+
+          <h2>Шаг 2: Настройка</h2>
+          
+          <p>Добавьте плагин Typography в ваш CSS файл:</p>
+
+          <pre><code class="language-css">@import 'tailwindcss';
+@plugin "@tailwindcss/typography";</code></pre>
+
+          <h2>Шаг 3: Создание контента</h2>
+          
+          <p>Используйте класс <code>prose</code> для стилизации статей:</p>
+
+          <pre><code class="language-html">&lt;article class="prose prose-lg max-w-none"&gt;
+  &lt;h1&gt;Заголовок статьи&lt;/h1&gt;
+  &lt;p&gt;Текст статьи...&lt;/p&gt;
+&lt;/article&gt;</code></pre>
+
+          <h3>Советы по использованию</h3>
+          
+          <ol>
+            <li>Используйте <code>prose-lg</code> для длинных статей</li>
+            <li>Добавляйте <code>prose-blue</code> для цветных акцентов</li>
+            <li>Применяйте <code>prose-invert</code> для тёмных тем</li>
+            <li>Комбинируйте с <code>max-w-none</code> для полной ширины</li>
+          </ol>
+
+          <blockquote>
+            <p>
+              <strong>Важно:</strong> Плагин Typography автоматически стилизует все вложенные
+              элементы, так что вам не нужно добавлять классы к каждому тегу.
+            </p>
+          </blockquote>
+
+          <h2>Заключение</h2>
+          
+          <p>
+            Tailwind CSS Typography — это мощный инструмент для создания красивых текстовых
+            страниц. Он экономит время и обеспечивает согласованный внешний вид всего контента.
+          </p>
+
+          <p>
+            <a href="#">Следующая статья →</a>
+          </p>
+        </article>
+      </section>
+    </div>
+  </body>
+</html>

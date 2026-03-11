@@ -153,7 +153,7 @@ function serve() {
 
   watch(paths.html.watch, html);
   watch(paths.styles.watch, styles);
-  watch('src/js/main.js', scripts);
+  watch(paths.scripts.src, scripts);
   watch(paths.images.src, images);
   watch(paths.fonts.src, fonts);
 }

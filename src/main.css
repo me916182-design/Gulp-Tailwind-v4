@@ -5,6 +5,8 @@
 /* Импорт Tailwind CSS */
 @import 'tailwindcss';
 
+@plugin "@tailwindcss/typography"; /* Для стилизации вложенных элементов*/
+
 /* ============================================
    1. КАСТОМНАЯ КОНФИГУРАЦИЯ (@theme)
    ============================================
@@ -77,6 +79,24 @@
 
   img {
     @apply h-auto max-w-full;
+  }
+
+  /* Кастомный скроллбар */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-400 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-500;
   }
 }
 

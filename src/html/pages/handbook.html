@@ -12,15 +12,37 @@
       <p class="text-slate-500 mb-8">FlowMarketing WP Build — справочник разработчика</p>
 
       <nav class="flex gap-2 flex-wrap mb-8" data-scroll data-scroll-offset="80">
-        <a href="#structure" class="px-4 py-2 bg-white border border-slate-200 rounded-md no-underline text-slate-700 text-sm transition-all duration-200 hover:bg-blue-500 hover:text-white hover:border-blue-500">Структура</a>
-        <a href="#components" class="px-4 py-2 bg-white border border-slate-200 rounded-md no-underline text-slate-700 text-sm transition-all duration-200 hover:bg-blue-500 hover:text-white hover:border-blue-500">Компоненты</a>
-        <a href="#scripts" class="px-4 py-2 bg-white border border-slate-200 rounded-md no-underline text-slate-700 text-sm transition-all duration-200 hover:bg-blue-500 hover:text-white hover:border-blue-500">Скрипты</a>
-        <a href="#commands" class="px-4 py-2 bg-white border border-slate-200 rounded-md no-underline text-slate-700 text-sm transition-all duration-200 hover:bg-blue-500 hover:text-white hover:border-blue-500">Команды</a>
-        <a href="#paths" class="px-4 py-2 bg-white border border-slate-200 rounded-md no-underline text-slate-700 text-sm transition-all duration-200 hover:bg-blue-500 hover:text-white hover:border-blue-500">Пути</a>
+        <a
+          href="#structure"
+          class="px-4 py-2 bg-white border border-slate-200 rounded-md no-underline text-slate-700 text-sm transition-all duration-200 hover:bg-blue-500 hover:text-white hover:border-blue-500"
+          >Структура</a
+        >
+        <a
+          href="#components"
+          class="px-4 py-2 bg-white border border-slate-200 rounded-md no-underline text-slate-700 text-sm transition-all duration-200 hover:bg-blue-500 hover:text-white hover:border-blue-500"
+          >Компоненты</a
+        >
+        <a
+          href="#scripts"
+          class="px-4 py-2 bg-white border border-slate-200 rounded-md no-underline text-slate-700 text-sm transition-all duration-200 hover:bg-blue-500 hover:text-white hover:border-blue-500"
+          >Скрипты</a
+        >
+        <a
+          href="#commands"
+          class="px-4 py-2 bg-white border border-slate-200 rounded-md no-underline text-slate-700 text-sm transition-all duration-200 hover:bg-blue-500 hover:text-white hover:border-blue-500"
+          >Команды</a
+        >
+        <a
+          href="#paths"
+          class="px-4 py-2 bg-white border border-slate-200 rounded-md no-underline text-slate-700 text-sm transition-all duration-200 hover:bg-blue-500 hover:text-white hover:border-blue-500"
+          >Пути</a
+        >
       </nav>
 
       <section id="structure" class="bg-white rounded-lg p-6 mb-6 shadow-sm">
-        <h2 class="text-xl font-bold text-slate-800 mb-4 pb-2 border-b-2 border-slate-200">📁 Структура проекта</h2>
+        <h2 class="text-xl font-bold text-slate-800 mb-4 pb-2 border-b-2 border-slate-200">
+          📁 Структура проекта
+        </h2>
         <div class="font-mono text-sm bg-slate-800 text-slate-200 p-4 rounded-md overflow-x-auto">
           <pre><span class="text-slate-500">flowmarketing-wp-build/</span>
 ├── <span class="text-blue-400">src/</span>
@@ -49,88 +71,199 @@
       </section>
 
       <section id="components" class="bg-white rounded-lg p-6 mb-6 shadow-sm">
-        <h2 class="text-xl font-bold text-slate-800 mb-4 pb-2 border-b-2 border-slate-200">🧩 HTML Компоненты (Partials)</h2>
+        <h2 class="text-xl font-bold text-slate-800 mb-4 pb-2 border-b-2 border-slate-200">
+          🧩 HTML Компоненты (Partials)
+        </h2>
         <div class="grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-4">
           <div class="bg-slate-50 border border-slate-200 rounded-md p-4">
             <h3 class="text-base font-semibold text-slate-800 mb-2">Header</h3>
-            <code class="block bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs mb-2">@@include('header.html')</code>
-            <p class="text-sm text-slate-500 m-0">Шапка сайта. Подключается в начале каждой страницы.</p>
+            <code class="block bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs mb-2"
+              >@@include('header.html')</code
+            >
+            <p class="text-sm text-slate-500 m-0">
+              Шапка сайта. Подключается в начале каждой страницы.
+            </p>
           </div>
           <div class="bg-slate-50 border border-slate-200 rounded-md p-4">
             <h3 class="text-base font-semibold text-slate-800 mb-2">Footer</h3>
-            <code class="block bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs mb-2">@@include('footer.html')</code>
-            <p class="text-sm text-slate-500 m-0">Подвал сайта. Подключается в конце каждой страницы.</p>
+            <code class="block bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs mb-2"
+              >@@include('footer.html')</code
+            >
+            <p class="text-sm text-slate-500 m-0">
+              Подвал сайта. Подключается в конце каждой страницы.
+            </p>
           </div>
         </div>
       </section>
 
       <section id="scripts" class="bg-white rounded-lg p-6 mb-6 shadow-sm">
-        <h2 class="text-xl font-bold text-slate-800 mb-4 pb-2 border-b-2 border-slate-200">📜 JavaScript Модули</h2>
+        <h2 class="text-xl font-bold text-slate-800 mb-4 pb-2 border-b-2 border-slate-200">
+          📜 JavaScript Модули
+        </h2>
         <div class="grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-4">
           <div class="bg-slate-50 border border-slate-200 rounded-md p-4">
             <h3 class="text-base font-semibold text-slate-800 mb-2">main.js</h3>
-            <code class="block bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs mb-2">src/js/main.js</code>
-            <p class="text-sm text-slate-500 m-0">Основной файл инициализации. Точка входа для всех скриптов.</p>
+            <code class="block bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs mb-2"
+              >src/js/main.js</code
+            >
+            <p class="text-sm text-slate-500 m-0">
+              Основной файл инициализации. Точка входа для всех скриптов.
+            </p>
           </div>
           <div class="bg-slate-50 border border-slate-200 rounded-md p-4">
             <h3 class="text-base font-semibold text-slate-800 mb-2">mobile-menu.js</h3>
-            <code class="block bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs mb-2">src/js/mobile-menu.js</code>
-            <p class="text-sm text-slate-500 m-0">Логика мобильного меню (открытие/закрытие, переключение классов).</p>
+            <code class="block bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs mb-2"
+              >src/js/mobile-menu.js</code
+            >
+            <p class="text-sm text-slate-500 m-0">
+              Логика мобильного меню (открытие/закрытие, переключение классов).
+            </p>
           </div>
           <div class="bg-slate-50 border border-slate-200 rounded-md p-4">
             <h3 class="text-base font-semibold text-slate-800 mb-2">modal.js</h3>
-            <code class="block bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs mb-2">src/js/modal.js</code>
-            <p class="text-sm text-slate-500 m-0">Управление модальными окнами. Интеграция с @fancyapps/ui.</p>
+            <code class="block bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs mb-2"
+              >src/js/modal.js</code
+            >
+            <p class="text-sm text-slate-500 m-0">
+              Управление модальными окнами. Интеграция с @fancyapps/ui.
+            </p>
           </div>
         </div>
       </section>
 
       <section id="commands" class="bg-white rounded-lg p-6 mb-6 shadow-sm">
-        <h2 class="text-xl font-bold text-slate-800 mb-4 pb-2 border-b-2 border-slate-200">⚙️ NPM Команды</h2>
+        <h2 class="text-xl font-bold text-slate-800 mb-4 pb-2 border-b-2 border-slate-200">
+          ⚙️ NPM Команды
+        </h2>
         <div class="overflow-x-auto">
           <table class="w-full border-collapse text-sm">
             <thead>
               <tr>
-                <th class="py-3 px-3 text-left bg-slate-50 font-semibold text-slate-800 border-b border-slate-200">Команда</th>
-                <th class="py-3 px-3 text-left bg-slate-50 font-semibold text-slate-800 border-b border-slate-200">Описание</th>
-                <th class="py-3 px-3 text-left bg-slate-50 font-semibold text-slate-800 border-b border-slate-200">Режим</th>
+                <th
+                  class="py-3 px-3 text-left bg-slate-50 font-semibold text-slate-800 border-b border-slate-200"
+                >
+                  Команда
+                </th>
+                <th
+                  class="py-3 px-3 text-left bg-slate-50 font-semibold text-slate-800 border-b border-slate-200"
+                >
+                  Описание
+                </th>
+                <th
+                  class="py-3 px-3 text-left bg-slate-50 font-semibold text-slate-800 border-b border-slate-200"
+                >
+                  Режим
+                </th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td class="py-3 px-3 border-b border-slate-200"><code class="bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs">npm run dev</code></td>
-                <td class="py-3 px-3 border-b border-slate-200">Запуск сервера разработки с автообновлением</td>
-                <td class="py-3 px-3 border-b border-slate-200"><span class="inline-block px-2 py-1 rounded text-xs font-semibold bg-blue-100 text-blue-800">dev</span></td>
+                <td class="py-3 px-3 border-b border-slate-200">
+                  <code class="bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs"
+                    >npm run dev</code
+                  >
+                </td>
+                <td class="py-3 px-3 border-b border-slate-200">
+                  Запуск сервера разработки с автообновлением
+                </td>
+                <td class="py-3 px-3 border-b border-slate-200">
+                  <span
+                    class="inline-block px-2 py-1 rounded text-xs font-semibold bg-blue-100 text-blue-800"
+                    >dev</span
+                  >
+                </td>
               </tr>
               <tr>
-                <td class="py-3 px-3 border-b border-slate-200"><code class="bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs">npm run build</code></td>
-                <td class="py-3 px-3 border-b border-slate-200">Сборка проекта в production (без минификации)</td>
-                <td class="py-3 px-3 border-b border-slate-200"><span class="inline-block px-2 py-1 rounded text-xs font-semibold bg-green-100 text-green-800">prod</span></td>
+                <td class="py-3 px-3 border-b border-slate-200">
+                  <code class="bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs"
+                    >npm run build</code
+                  >
+                </td>
+                <td class="py-3 px-3 border-b border-slate-200">
+                  Сборка проекта в production (без минификации)
+                </td>
+                <td class="py-3 px-3 border-b border-slate-200">
+                  <span
+                    class="inline-block px-2 py-1 rounded text-xs font-semibold bg-green-100 text-green-800"
+                    >prod</span
+                  >
+                </td>
               </tr>
               <tr>
-                <td class="py-3 px-3 border-b border-slate-200"><code class="bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs">npm run clean</code></td>
+                <td class="py-3 px-3 border-b border-slate-200">
+                  <code class="bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs"
+                    >npm run clean</code
+                  >
+                </td>
                 <td class="py-3 px-3 border-b border-slate-200">Очистка папки dist/</td>
-                <td class="py-3 px-3 border-b border-slate-200"><span class="inline-block px-2 py-1 rounded text-xs font-semibold bg-red-100 text-red-800">clean</span></td>
+                <td class="py-3 px-3 border-b border-slate-200">
+                  <span
+                    class="inline-block px-2 py-1 rounded text-xs font-semibold bg-red-100 text-red-800"
+                    >clean</span
+                  >
+                </td>
               </tr>
               <tr>
-                <td class="py-3 px-3 border-b border-slate-200"><code class="bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs">npm run lint</code></td>
+                <td class="py-3 px-3 border-b border-slate-200">
+                  <code class="bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs"
+                    >npm run lint</code
+                  >
+                </td>
                 <td class="py-3 px-3 border-b border-slate-200">Проверка кода через ESLint</td>
-                <td class="py-3 px-3 border-b border-slate-200"><span class="inline-block px-2 py-1 rounded text-xs font-semibold bg-blue-100 text-blue-800">dev</span></td>
+                <td class="py-3 px-3 border-b border-slate-200">
+                  <span
+                    class="inline-block px-2 py-1 rounded text-xs font-semibold bg-blue-100 text-blue-800"
+                    >dev</span
+                  >
+                </td>
               </tr>
               <tr>
-                <td class="py-3 px-3 border-b border-slate-200"><code class="bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs">npm run lint:fix</code></td>
-                <td class="py-3 px-3 border-b border-slate-200">Исправление ошибок ESLint автоматически</td>
-                <td class="py-3 px-3 border-b border-slate-200"><span class="inline-block px-2 py-1 rounded text-xs font-semibold bg-blue-100 text-blue-800">dev</span></td>
+                <td class="py-3 px-3 border-b border-slate-200">
+                  <code class="bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs"
+                    >npm run lint:fix</code
+                  >
+                </td>
+                <td class="py-3 px-3 border-b border-slate-200">
+                  Исправление ошибок ESLint автоматически
+                </td>
+                <td class="py-3 px-3 border-b border-slate-200">
+                  <span
+                    class="inline-block px-2 py-1 rounded text-xs font-semibold bg-blue-100 text-blue-800"
+                    >dev</span
+                  >
+                </td>
               </tr>
               <tr>
-                <td class="py-3 px-3 border-b border-slate-200"><code class="bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs">npm run format</code></td>
-                <td class="py-3 px-3 border-b border-slate-200">Форматирование кода через Prettier</td>
-                <td class="py-3 px-3 border-b border-slate-200"><span class="inline-block px-2 py-1 rounded text-xs font-semibold bg-blue-100 text-blue-800">dev</span></td>
+                <td class="py-3 px-3 border-b border-slate-200">
+                  <code class="bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs"
+                    >npm run format</code
+                  >
+                </td>
+                <td class="py-3 px-3 border-b border-slate-200">
+                  Форматирование кода через Prettier
+                </td>
+                <td class="py-3 px-3 border-b border-slate-200">
+                  <span
+                    class="inline-block px-2 py-1 rounded text-xs font-semibold bg-blue-100 text-blue-800"
+                    >dev</span
+                  >
+                </td>
               </tr>
               <tr>
-                <td class="py-3 px-3 border-b border-slate-200"><code class="bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs">npm run format:check</code></td>
-                <td class="py-3 px-3 border-b border-slate-200">Проверка форматирования без изменений</td>
-                <td class="py-3 px-3 border-b border-slate-200"><span class="inline-block px-2 py-1 rounded text-xs font-semibold bg-blue-100 text-blue-800">dev</span></td>
+                <td class="py-3 px-3 border-b border-slate-200">
+                  <code class="bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs"
+                    >npm run format:check</code
+                  >
+                </td>
+                <td class="py-3 px-3 border-b border-slate-200">
+                  Проверка форматирования без изменений
+                </td>
+                <td class="py-3 px-3 border-b border-slate-200">
+                  <span
+                    class="inline-block px-2 py-1 rounded text-xs font-semibold bg-blue-100 text-blue-800"
+                    >dev</span
+                  >
+                </td>
               </tr>
             </tbody>
           </table>
@@ -138,50 +271,92 @@
       </section>
 
       <section id="paths" class="bg-white rounded-lg p-6 mb-6 shadow-sm">
-        <h2 class="text-xl font-bold text-slate-800 mb-4 pb-2 border-b-2 border-slate-200">🗂️ Пути в Gulpfile</h2>
+        <h2 class="text-xl font-bold text-slate-800 mb-4 pb-2 border-b-2 border-slate-200">
+          🗂️ Пути в Gulpfile
+        </h2>
         <div class="overflow-x-auto">
           <table class="w-full border-collapse text-sm">
             <thead>
               <tr>
-                <th class="py-3 px-3 text-left bg-slate-50 font-semibold text-slate-800 border-b border-slate-200">Тип</th>
-                <th class="py-3 px-3 text-left bg-slate-50 font-semibold text-slate-800 border-b border-slate-200">Исходник</th>
-                <th class="py-3 px-3 text-left bg-slate-50 font-semibold text-slate-800 border-b border-slate-200">Назначение</th>
+                <th
+                  class="py-3 px-3 text-left bg-slate-50 font-semibold text-slate-800 border-b border-slate-200"
+                >
+                  Тип
+                </th>
+                <th
+                  class="py-3 px-3 text-left bg-slate-50 font-semibold text-slate-800 border-b border-slate-200"
+                >
+                  Исходник
+                </th>
+                <th
+                  class="py-3 px-3 text-left bg-slate-50 font-semibold text-slate-800 border-b border-slate-200"
+                >
+                  Назначение
+                </th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td class="py-3 px-3 border-b border-slate-200">HTML Pages</td>
-                <td class="py-3 px-3 border-b border-slate-200"><code class="bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs">src/html/pages/**/*.html</code></td>
+                <td class="py-3 px-3 border-b border-slate-200">
+                  <code class="bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs"
+                    >src/html/pages/**/*.html</code
+                  >
+                </td>
                 <td class="py-3 px-3 border-b border-slate-200">Основные HTML страницы</td>
               </tr>
               <tr>
                 <td class="py-3 px-3 border-b border-slate-200">HTML Partials</td>
-                <td class="py-3 px-3 border-b border-slate-200"><code class="bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs">src/html/partials/</code></td>
+                <td class="py-3 px-3 border-b border-slate-200">
+                  <code class="bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs"
+                    >src/html/partials/</code
+                  >
+                </td>
                 <td class="py-3 px-3 border-b border-slate-200">Компоненты для include</td>
               </tr>
               <tr>
                 <td class="py-3 px-3 border-b border-slate-200">Styles</td>
-                <td class="py-3 px-3 border-b border-slate-200"><code class="bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs">src/main.css</code></td>
+                <td class="py-3 px-3 border-b border-slate-200">
+                  <code class="bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs"
+                    >src/main.css</code
+                  >
+                </td>
                 <td class="py-3 px-3 border-b border-slate-200">Главный CSS файл (Tailwind)</td>
               </tr>
               <tr>
                 <td class="py-3 px-3 border-b border-slate-200">Scripts</td>
-                <td class="py-3 px-3 border-b border-slate-200"><code class="bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs">src/js/**/*.js</code></td>
+                <td class="py-3 px-3 border-b border-slate-200">
+                  <code class="bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs"
+                    >src/js/**/*.js</code
+                  >
+                </td>
                 <td class="py-3 px-3 border-b border-slate-200">JavaScript модули</td>
               </tr>
               <tr>
                 <td class="py-3 px-3 border-b border-slate-200">Images</td>
-                <td class="py-3 px-3 border-b border-slate-200"><code class="bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs">src/images/**/*</code></td>
+                <td class="py-3 px-3 border-b border-slate-200">
+                  <code class="bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs"
+                    >src/images/**/*</code
+                  >
+                </td>
                 <td class="py-3 px-3 border-b border-slate-200">Изображения</td>
               </tr>
               <tr>
                 <td class="py-3 px-3 border-b border-slate-200">Fonts</td>
-                <td class="py-3 px-3 border-b border-slate-200"><code class="bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs">src/fonts/**/*</code></td>
+                <td class="py-3 px-3 border-b border-slate-200">
+                  <code class="bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs"
+                    >src/fonts/**/*</code
+                  >
+                </td>
                 <td class="py-3 px-3 border-b border-slate-200">Шрифты</td>
               </tr>
               <tr>
                 <td class="py-3 px-3 border-b border-slate-200">IBS</td>
-                <td class="py-3 px-3 border-b border-slate-200"><code class="bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs">src/ibs/**/*</code></td>
+                <td class="py-3 px-3 border-b border-slate-200">
+                  <code class="bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs"
+                    >src/ibs/**/*</code
+                  >
+                </td>
                 <td class="py-3 px-3 border-b border-slate-200">Дополнительные файлы</td>
               </tr>
             </tbody>
@@ -190,16 +365,29 @@
       </section>
 
       <section class="bg-white rounded-lg p-6 mb-6 shadow-sm">
-        <h2 class="text-xl font-bold text-slate-800 mb-4 pb-2 border-b-2 border-slate-200">🔗 Быстрые ссылки</h2>
+        <h2 class="text-xl font-bold text-slate-800 mb-4 pb-2 border-b-2 border-slate-200">
+          🔗 Быстрые ссылки
+        </h2>
         <div class="grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-4">
           <div class="bg-slate-50 border border-slate-200 rounded-md p-4">
             <h3 class="text-base font-semibold text-slate-800 mb-2">Открыть страницу</h3>
-            <code class="block"><a href="index.html" class="text-blue-500 no-underline hover:underline" target="_blank">index.html</a></code>
+            <code class="block"
+              ><a
+                href="index.html"
+                class="text-blue-500 no-underline hover:underline"
+                target="_blank"
+                >index.html</a
+              ></code
+            >
             <p class="text-sm text-slate-500 m-0">Перейти на главную страницу проекта</p>
           </div>
           <div class="bg-slate-50 border border-slate-200 rounded-md p-4">
             <h3 class="text-base font-semibold text-slate-800 mb-2">Папка dist/</h3>
-            <code class="block"><a href="../dist/" class="text-blue-500 no-underline hover:underline" target="_blank">dist/</a></code>
+            <code class="block"
+              ><a href="../dist/" class="text-blue-500 no-underline hover:underline" target="_blank"
+                >dist/</a
+              ></code
+            >
             <p class="text-sm text-slate-500 m-0">Результат сборки (если существует)</p>
           </div>
         </div>

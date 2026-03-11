@@ -1,5 +1,5 @@
 /**
- * Плавная прокрутка к якорям
+ * Плавная прокрутка к якорям (через Lenis)
  *
  * Использование:
  * - Добавить data-scroll на контейнер: <nav data-scroll>
@@ -33,11 +33,20 @@ export function init() {
     const elementPosition = targetElement.getBoundingClientRect().top;
     const offsetPosition = elementPosition + window.pageYOffset - offset;
 
-    // Плавная прокрутка
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: 'smooth',
-    });
+    // Плавная прокрутка через Lenis (если доступен)
+    if (window.lenisInstance) {
+      window.lenisInstance.scrollTo(offsetPosition, {
+        offset: 0,
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      });
+    } else {
+      // Фоллбэк на обычный scrollTo
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+    }
 
     // Не обновляем URL — хеш остаётся неизменным
   });

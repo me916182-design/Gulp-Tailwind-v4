@@ -22,6 +22,10 @@ export function init() {
       menuPanel.classList.remove('translate-x-full');
     }, 10);
     document.body.style.overflow = 'hidden';
+    // Останавливаем Lenis (плавную прокрутку)
+    if (window.lenisInstance) {
+      window.lenisInstance.stop();
+    }
   };
 
   // Закрытие меню
@@ -31,11 +35,16 @@ export function init() {
     setTimeout(() => {
       menu.classList.add('hidden');
       document.body.style.overflow = '';
+      // Запускаем Lenis обратно
+      if (window.lenisInstance) {
+        window.lenisInstance.start();
+      }
     }, 300);
   };
 
   // Тоггл меню по клику на кнопку
-  openBtn.addEventListener('click', () => {
+  openBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
     if (isOpen()) {
       closeMenu();
     } else {
@@ -47,11 +56,14 @@ export function init() {
 
   // Закрытие по клику на подложку (затемнение)
   const overlay = menu.querySelector('.mobile-menu-overlay');
-  overlay?.addEventListener('click', closeMenu);
+  overlay?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    closeMenu();
+  });
 
-  // Закрытие по клику вне панели
+  // Закрытие по клику вне панели (на подложку)
   menu.addEventListener('click', (e) => {
-    if (e.target === menu) {
+    if (e.target === menu || e.target === overlay) {
       closeMenu();
     }
   });
@@ -68,6 +80,3 @@ export function init() {
     }
   });
 }
-
-// Инициализация при загрузке DOM
-document.addEventListener('DOMContentLoaded', init);
